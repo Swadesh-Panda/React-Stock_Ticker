@@ -7,10 +7,32 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+import { v4 as uuidV4 } from 'uuid';
+import { UserContext } from "../context/UserProvider";
 
 const Login = () => {
+  const { user, setUser } = useContext(UserContext);
+
+  const CreateNewId = (e) => {
+    setUser({
+      ...user,
+      id: uuidV4(),
+    })
+
+    console.log(user);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    console.log(user);
+  };
+
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      id: e.target.value,
+    });
   };
 
   return (
@@ -24,6 +46,7 @@ const Login = () => {
                 label="Enter Id"
                 placeholder="Enter your id..."
                 fullWidth
+                onChange={handleChange}
                 required
               />
             </Grid>
@@ -31,7 +54,7 @@ const Login = () => {
               <Button type="submit" variant="contained">
                 Log in
               </Button>
-              <Button type="submit" variant="contained" className="primary">
+              <Button onClick={CreateNewId} variant="contained" className="primary">
                 Create a new id
               </Button>
             </Grid>
