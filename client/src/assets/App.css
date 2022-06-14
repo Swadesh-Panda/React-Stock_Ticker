@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primary {
+    background-color: #616161 !important;
+}
+
+.Login {
+    width: 450px;
+    border-radius: 15px !important;
+}
+
+.Login button {
+    margin: 5px;
+}
