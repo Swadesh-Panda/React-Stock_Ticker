@@ -18,12 +18,12 @@ const Login = () => {
       ...user,
       id: uuidV4(),
     });
-
-    console.log(user);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    console.log(user);
   };
 
   const handleIdChange = (e) => {
@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <Card className="Login">
+    <Card className="card-container Login">
       <CardHeader title="Log in" />
       <CardContent>
         <form onSubmit={handleSubmit}>
