@@ -22,7 +22,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     console.log(user);
   };
 
@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <Card className="card-container Login">
+    <Card className="card-container card-form Login">
       <CardHeader title="Log in" />
       <CardContent>
         <form onSubmit={handleSubmit}>

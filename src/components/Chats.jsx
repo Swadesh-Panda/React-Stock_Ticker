@@ -2,7 +2,9 @@ import React from 'react'
 
 const Chats = () => {
   return (
-    <div>Chats</div>
+    <div className='sidebar-component'>
+      <div>Chats</div>
+    </div>
   )
 }
 

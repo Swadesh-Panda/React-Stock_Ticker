@@ -10,7 +10,7 @@
 }
 
 .secondary {
-    background-color: white !important;
+    background-color: #ffffff !important;
 }
 
 .card-container {
@@ -18,21 +18,66 @@
     margin: 10px;
 }
 
+.card-form button {
+    margin: 5px;
+}
+
 .Login {
     width: 450px;
 }
 
-.Login button {
-    margin: 5px;
-}
-
 .Dashboard {
     width: 1200px;
-    height: 80%;
+    height: 80vh;
 }
 
 .Sidebar {
     margin: 0px;
     border-radius: 0px !important;
     height: 100%;
+    position: relative;
+}
+
+.Sidebar .tab-panel {
+    
+}
+
+.Sidebar .add-button {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin: 2px;
+
+    height: 65px;
+    width: 65px;
+
+    transform: scale(0.7);
+    border-radius: 100% !important;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000042;
+}
+
+.modal .card-container {
+    border-radius: 5px !important;
+    min-width: 400px;
+    min-height: 200px;
+    position: relative;
+}
+
+.modal .modal-close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    padding: 0px;
+    margin: 15px;
+
+    color: #000000;
+
+    transform: scale(1.25);
 }
