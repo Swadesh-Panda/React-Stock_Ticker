@@ -39,7 +39,7 @@
 }
 
 .Sidebar .tab-panel {
-    
+    padding: 10px;
 }
 
 .Sidebar .add-button {
@@ -77,4 +77,8 @@
     padding: 0px;
     margin: 10px;
     border-radius: 100% !important;
+}
+
+.List .list-item{
+    padding: 0px;
 }

@@ -10,7 +10,7 @@ import ContactList from "./ContactList";
 import NewContact from "./modals/NewContact";
 import NewChat from "./modals/NewChat";
 import HighlightOffRounded from "@mui/icons-material/HighlightOffRounded";
-import ChatRoundedIcon from '@mui/icons-material/ChatRounded';
+import ChatRoundedIcon from "@mui/icons-material/ChatRounded";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -23,7 +23,11 @@ function TabPanel(props) {
       aria-labelledby={`tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 2 }}>{children}</Box>}
+      {value === index && (
+        <Box className="tab-panel" sx={{ p: 2 }}>
+          {children}
+        </Box>
+      )}
     </div>
   );
 }
@@ -77,7 +81,6 @@ const Sidebar = () => {
         </AppBar>
       </Box>
       <SwipeableViews
-        className="tab-panel"
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={tab}
         onChangeIndex={handleChangeIndex}
@@ -95,7 +98,7 @@ const Sidebar = () => {
         onClick={handleModal_Open}
         variant="contained"
       >
-        {tab? <AddIcon fontSize="large" /> : <ChatRoundedIcon/>}
+        {tab ? <AddIcon fontSize="large" /> : <ChatRoundedIcon />}
       </Button>
 
       <Modal
@@ -106,7 +109,7 @@ const Sidebar = () => {
       >
         <Card className="card-container" variant="outlined" sx={{ width: 200 }}>
           {tab ? <NewContact /> : <NewChat />}
-          <IconButton className="modal-close"   onClick={handleModal_Close}>
+          <IconButton className="modal-close" onClick={handleModal_Close}>
             <HighlightOffRounded fontSize="large" />
           </IconButton>
         </Card>
