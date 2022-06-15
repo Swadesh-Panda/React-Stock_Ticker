@@ -16,7 +16,7 @@ const Login = () => {
   const CreateNewId = (e) => {
     setUser({
       ...user,
-      id: uuidV4(),
+      uuid: uuidV4(),
     });
   };
 
@@ -29,7 +29,7 @@ const Login = () => {
   const handleIdChange = (e) => {
     setUser({
       ...user,
-      id: e.target.value,
+      uuid: e.target.value,
     });
   };
 
@@ -46,7 +46,7 @@ const Login = () => {
                 fullWidth
                 required
                 onChange={handleIdChange}
-                value={user.id}
+                value={user.uuid}
               />
             </Grid>
             <Grid item textAlign="end" xs={12}>

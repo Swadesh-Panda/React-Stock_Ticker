@@ -5,7 +5,7 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useLocalStorage("user", {
-    id: "",
+    uuid: "",
     name: "",
     phone: "",
   });

@@ -12,7 +12,7 @@ const Dashboard = () => {
           <Sidebar />
         </Grid>
 
-        <Grid item>Your ID : {user.id}</Grid>
+        <Grid item>Your ID : {user.uuid}</Grid>
       </Grid>
     </Card>
   );

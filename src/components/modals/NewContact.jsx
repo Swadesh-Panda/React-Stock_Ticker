@@ -10,7 +10,6 @@ import { ContactsContext } from "../../context/ContactsProvider";
 
 const NewContact = () => {
   const { contacts, setContacts } = useContext(ContactsContext);
-  console.log(useContext(ContactsContext));
 
   const [contact, setContact] = useState({
     name: "",

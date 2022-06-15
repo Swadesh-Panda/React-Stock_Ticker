@@ -3,21 +3,31 @@ import {
   Divider,
   List,
   ListItem,
+  ListItemButton,
   ListItemAvatar,
   ListItemText,
   Typography,
 } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ContactsContext } from "../context/ContactsProvider";
 
 const ContactList = () => {
   const { contacts } = useContext(ContactsContext);
+  const [Item, setItem] = useState();
+
+  const handleListItemClick = (event, index) => {
+    setItem(index);
+  };
 
   return (
     <List className="List">
       {contacts.map((contact) => (
         <div key={contact.phone}>
-          <ListItem className="list-item">
+          <ListItemButton
+            className="list-item"
+            selected={Item === contact.phone}
+            onClick={(event) => handleListItemClick(event, contact.phone)}
+          >
             <ListItemAvatar>
               <Avatar alt={contact.name} src="/static/images/avatar/" />
             </ListItemAvatar>
@@ -25,7 +35,7 @@ const ContactList = () => {
               primary={contact.name}
               secondary={<Typography>+91 {contact.phone}</Typography>}
             />
-          </ListItem>
+          </ListItemButton>
           <Divider variant="inset" />
         </div>
       ))}

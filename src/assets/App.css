@@ -28,13 +28,13 @@
 
 .Dashboard {
     width: 1200px;
-    height: 80vh;
 }
 
 .Sidebar {
     margin: 0px;
     border-radius: 0px !important;
-    height: 100%;
+    min-height: 80vh;
+    height: fit-content;
     position: relative;
 }
 
@@ -79,6 +79,16 @@
     border-radius: 100% !important;
 }
 
-.List .list-item{
+.List {
+    max-height: 72vh;
+}
+
+.List .list-item {
     padding: 0px;
+}
+
+.multi-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
 }
