@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Chats = () => {
+const ChatList = () => {
   return (
     <div className='sidebar-component'>
       <div>Chats</div>
@@ -8,4 +8,4 @@ const Chats = () => {
   )
 }
 
-export default Chats
+export default ChatList

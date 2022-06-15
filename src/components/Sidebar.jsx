@@ -5,11 +5,12 @@ import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import { Tabs, Tab, Box, Card, Button, Modal, IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import Chats from "./Chats";
-import Contacts from "./Contacts";
+import ChatList from "./ChatList";
+import ContactList from "./ContactList";
 import NewContact from "./modals/NewContact";
 import NewChat from "./modals/NewChat";
 import HighlightOffRounded from "@mui/icons-material/HighlightOffRounded";
+import ChatRoundedIcon from '@mui/icons-material/ChatRounded';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -82,10 +83,10 @@ const Sidebar = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={tab} index={0}>
-          <Chats />
+          <ChatList />
         </TabPanel>
         <TabPanel value={tab} index={1}>
-          <Contacts />
+          <ContactList />
         </TabPanel>
       </SwipeableViews>
 
@@ -94,7 +95,7 @@ const Sidebar = () => {
         onClick={handleModal_Open}
         variant="contained"
       >
-        <AddIcon fontSize="large" />
+        {tab? <AddIcon fontSize="large" /> : <ChatRoundedIcon/>}
       </Button>
 
       <Modal
@@ -106,7 +107,7 @@ const Sidebar = () => {
         <Card className="card-container" variant="outlined" sx={{ width: 200 }}>
           {tab ? <NewContact /> : <NewChat />}
           <IconButton className="modal-close"   onClick={handleModal_Close}>
-            <HighlightOffRounded />
+            <HighlightOffRounded fontSize="large" />
           </IconButton>
         </Card>
       </Modal>

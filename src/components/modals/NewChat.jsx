@@ -8,11 +8,13 @@ import {
 import React from "react";
 
 const NewChat = () => {
+  const handleSubmit = () => {};
+
   return (
     <div>
       <CardHeader title="Create Chat" />
       <CardContent>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <TextField
@@ -24,7 +26,7 @@ const NewChat = () => {
                 // value={user.id}
               />
             </Grid>
-            <Grid item xs={12} textAlign='end'>
+            <Grid item xs={12} textAlign="end">
               <Button type="submit" variant="contained">
                 Add
               </Button>

@@ -1,3 +1,4 @@
+import React, { useContext, useState } from "react";
 import {
   CardHeader,
   CardContent,
@@ -5,26 +6,65 @@ import {
   Grid,
   Button,
 } from "@mui/material";
-import React from "react";
+import { ContactsContext } from "../../context/ContactsProvider";
 
 const NewContact = () => {
+  const { contacts, setContacts } = useContext(ContactsContext);
+  console.log(useContext(ContactsContext));
+
+  const [contact, setContact] = useState({
+    name: "",
+    phone: "",
+  });
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+
+    setContacts((prevContacts) => {
+      return [...prevContacts, contact];
+    });
+  };
+
+  const handleNameChange = (e) => {
+    setContact({
+      ...contact,
+      name: e.target.value,
+    });
+  };
+
+  const handlePhoneChange = (e) => {
+    setContact({
+      ...contact,
+      phone: e.target.value,
+    });
+  };
+
   return (
     <div>
       <CardHeader title="Create Contact" />
       <CardContent>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Grid container spacing={1}>
             <Grid item xs={12}>
               <TextField
-                label="Enter Contact"
-                placeholder="Enter Contact no."
+                label="Name"
+                placeholder="enter name..."
                 fullWidth
                 required
-                // onChange={handleChange}
-                // value={}
+                onChange={handleNameChange}
               />
             </Grid>
-            <Grid item xs={12} textAlign='end'>
+            <Grid item xs={12}>
+              <TextField
+                label="Contact No."
+                type="number"
+                placeholder="enter phone no."
+                fullWidth
+                required
+                onChange={handlePhoneChange}
+              />
+            </Grid>
+            <Grid item xs={12} textAlign="end">
               <Button type="submit" variant="contained">
                 Add
               </Button>
