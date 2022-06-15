@@ -11,11 +11,13 @@ import {
   Grid,
   TextField,
   Button,
+  FormControl,
 } from "@mui/material";
 import { ContactsContext } from "../../context/ContactsProvider";
 import { ChatsContext } from "../../context/ChatsProvider";
 
 const NewChat = () => {
+  const [createState, setCreateState] = useState(false);
   const { contacts } = useContext(ContactsContext);
   const { chats, setChats } = useContext(ChatsContext);
 
@@ -42,18 +44,22 @@ const NewChat = () => {
     });
   };
 
-  const handleSelect = (event) => {
+  const handleSelect = (e) => {
     const {
       target: { value },
-    } = event;
+    } = e;
+
     setParticipants(
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+
     setGroup({
       ...group,
       members: typeof value === "string" ? value.split(",") : value,
     });
+
+    if (group.members !== []) setCreateState(true);
   };
 
   return (
@@ -72,37 +78,41 @@ const NewChat = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <InputLabel>Participants</InputLabel>
-              <Select
-                multiple
-                label="Participants"
-                value={participants}
-                onChange={handleSelect}
-                renderValue={(selected) => (
-                  <Box className="multi-container">
-                    {selected.map((value) => (
-                      <Chip key={value} label={value} />
-                    ))}
-                  </Box>
-                )}
-                MenuProps={{
-                  PaperProps: {
-                    style: {
-                      maxHeight: 300,
-                      width: 250,
+              <FormControl fullWidth>
+                <InputLabel required>Participants</InputLabel>
+                <Select
+                  multiple
+                  label="Participants"
+                  value={participants}
+                  onChange={handleSelect}
+                  renderValue={(selected) => (
+                    <Box className="multi-container">
+                      {selected.map((value) => (
+                        <Chip key={value} label={value} />
+                      ))}
+                    </Box>
+                  )}
+                  MenuProps={{
+                    PaperProps: {
+                      style: {
+                        maxHeight: 300,
+                        width: 250,
+                      },
                     },
-                  },
-                }}
-              >
-                {contacts.map((contact) => (
-                  <MenuItem key={contact.name} value={contact.name}>
-                    {contact.name}
-                  </MenuItem>
-                ))}
-              </Select>
+                  }}
+                >
+                  {contacts.map((contact) => (
+                    <MenuItem key={contact.name} value={contact.name}>
+                      <Box>
+                        {contact.name}
+                      </Box>
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
             <Grid item xs={12} textAlign="end">
-              <Button type="submit" variant="contained">
+              <Button type="submit" variant="contained" disabled={!createState}>
                 Create
               </Button>
             </Grid>

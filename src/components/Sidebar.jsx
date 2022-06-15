@@ -75,7 +75,7 @@ const Sidebar = () => {
             textColor="inherit"
             variant="fullWidth"
           >
-            <Tab label="Groups" {...TabProps(0)} />
+            <Tab label="Chats" {...TabProps(0)} />
             <Tab label="Contacts" {...TabProps(1)} />
           </Tabs>
         </AppBar>
