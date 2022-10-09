@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { v4 as uuidV4 } from "uuid";
 import { UserContext } from "../context/UserProvider";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const { user, setUser } = useContext(UserContext);
@@ -50,9 +51,11 @@ const Login = () => {
               />
             </Grid>
             <Grid item textAlign="end" xs={12}>
-              <Button type="submit" variant="contained">
-                Log in
-              </Button>
+              <NavLink to="/dashboard" >
+                <Button type="submit" variant="contained">
+                  Log in
+                </Button>
+              </NavLink>
               <Button
                 onClick={CreateNewId}
                 variant="contained"
