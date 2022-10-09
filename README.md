@@ -1,4 +1,5 @@
 # React_Chat-Client
+A Web Chat application created using React.js
 
 ```
 # Install dependencies
