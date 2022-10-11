@@ -42,6 +42,18 @@
     padding: 10px;
 }
 
+.add-button {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin: 2px;
+
+    height: 65px;
+    width: 65px;
+
+    transform: scale(0.7);
+    border-radius: 100% !important;
+}
 .Sidebar .add-button {
     position: absolute;
     bottom: 0px;
