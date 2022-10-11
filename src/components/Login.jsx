@@ -51,7 +51,7 @@ const Login = () => {
               />
             </Grid>
             <Grid item textAlign="end" xs={12}>
-              <NavLink to="/dashboard" >
+              <NavLink style={{ textDecoration: 'none' }} to="/dashboard" >
                 <Button type="submit" variant="contained">
                   Log in
                 </Button>
