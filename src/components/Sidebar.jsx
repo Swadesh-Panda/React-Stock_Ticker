@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import { Tabs, Tab, Box, Card, Button, Modal, IconButton } from "@mui/material";
@@ -80,7 +79,7 @@ const Sidebar = () => {
           </Tabs>
         </AppBar>
       </Box>
-      <SwipeableViews
+      <Box
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={tab}
         onChangeIndex={handleChangeIndex}
@@ -91,7 +90,7 @@ const Sidebar = () => {
         <TabPanel value={tab} index={1}>
           <ContactList />
         </TabPanel>
-      </SwipeableViews>
+      </Box>
 
       <Button
         className="add-button primary"
